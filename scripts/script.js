@@ -2,6 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuTabs = document.querySelectorAll('.menu-tab');
     const menuContents = document.querySelectorAll('.menu-content');
     const categoryTitles = document.querySelectorAll('.menu-category-title');
+    const heroCarousel = document.querySelector('.hero-carousel');
+
+    heroCarousel.addEventListener('scroll', () => {
+        const scrollPosition = heroCarousel.scrollLeft;
+        const imageWidth = heroCarousel.clientWidth;
+        const currentImage = Math.round(scrollPosition / imageWidth) + 1;
+    });
 
     menuTabs.forEach(tab => {
         tab.addEventListener('click', function() {

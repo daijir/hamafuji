@@ -6,20 +6,21 @@ body {
     margin: 0;
     line-height: 1.6;
     color: #333;
-    background-color: #f8f8f8;
+    background-color: #fff; /* 背景色を白に変更 */
 }
 
 a {
-    color: #007bff;
+    color: #e44d26;  /* メインカラーを赤系の色に変更 */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #0056b3;
+    color: #b83e1b; /* ホバー時の色を濃い赤に変更 */
 }
 
-h1, h2, h3 {
+h2, h3 {
+    font-family: 'RocknRoll One', sans-serif; /* フォントを丸ゴシック系に変更 */
     font-weight: 700;
     color: #222;
     margin-bottom: 0.8em;
@@ -33,6 +34,9 @@ h1 {
 
 h2 {
     font-size: 1.75em;
+    border-bottom: 3px solid #ffcc00; /* 黄色の下線を追加 */
+    padding-bottom: 0.3em;
+    margin-bottom: 1em;
 }
 
 h3 {
@@ -44,7 +48,7 @@ img {
     height: auto;
     display: block;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 少し強めの影 */
 }
 
 .button {
@@ -55,44 +59,38 @@ img {
     transition: background-color 0.3s ease, color 0.3s ease;
     text-align: center;
     margin-bottom: 0.5em;
+    border: 2px solid transparent; /* ボタンのボーダーを太くする */
 }
 
 .button.primary {
-    background-color: #dc3545;
+    background-color: #e44d26;
     color: #fff;
 }
 
 .button.primary:hover {
-    background-color: #c82333;
-}
-
-.button.secondary {
-    background-color: #f8f9fa;
-    color: #333;
-    border: 1px solid #ccc;
-}
-
-.button.secondary:hover {
-    background-color: #e2e6ea;
+    background-color: #fff;
+    color: #e44d26;
+    border-color: #e44d26;
 }
 
 header {
-    background-color: #333;
+    background-color: #e44d26;
     padding: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 1px solid #eee;
+    border-bottom: 4px solid #ffcc00; /* 黄色の太い下線を追加 */
     position: relative;
     justify-content: space-between;
 }
 
 header .logo a {
+    font-family: 'RocknRoll One', sans-serif; /* フォントを丸ゴシック系に変更 */
     font-size: 1.5em;
     font-weight: 700;
-    color: white;
+    color: #fff;
     margin-bottom: 0.5em;
-    text-decoration: none; /* 下線を削除 */
+    text-decoration: none;
 }
 
 .nav-wrapper {
@@ -104,7 +102,7 @@ header .logo a {
 
 /* メインナビゲーション */
 .main-nav {
-    display: none; /* 初期状態では非表示（モバイル） */
+    display: none;
     width: 100%;
     text-align: center;
     margin-top: 1em;
@@ -122,15 +120,15 @@ header .logo a {
 }
 
 .main-nav ul li a {
-    color: #fff; /* デフォルトのリンク色を白に */
-    text-decoration: none; /* 下線を削除 */
-    padding: 0.5em 1em; /* 余白を追加 */
-    border-radius: 5px; /* 角丸 */
-    transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .main-nav ul li a:hover {
-    background-color: #555; /* ホバー時の背景色 */
+    background-color: #555;
 }
 
 /* ハンバーガーボタン */
@@ -154,7 +152,7 @@ header .logo a {
     display: block;
     width: 100%;
     height: 3px;
-    background-color: #fff; /* ハンバーガーの色を白に */
+    background-color: #fff;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -173,14 +171,14 @@ header .logo a {
 /* ナビゲーション表示 (モバイル) */
 .main-nav.open {
     display: block;
-    background-color: #333; /* 背景色をヘッダーと同じに */
+    background-color: #e44d26;
     padding: 1em;
-    border-top: 1px solid #555; /* 区切り線 */
+    border-top: 1px solid #fff;
 }
 
 header .header-info .phone {
     font-weight: 500;
-    color: #fff; /* 電話番号の色を白に */
+    color: #fff;
     margin-top: 0.5em;
 }
 
@@ -192,29 +190,72 @@ main {
     background-color: #fff;
     padding: 1.5em;
     margin-bottom: 2em;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* カルーセルとコンテンツを縦に並べる */
+    align-items: center; /* 中央揃え */
 }
 
-.hero-image {
-    margin-bottom: 1.5em;
+.hero-carousel {
+    display: flex;
+    width: 100%;
+    height: 300px; /* 必要に応じて調整 */
+    overflow-x: auto; /* 横スクロールを有効にする */
+    scroll-snap-type: x mandatory; /* スナップポイントを設定 */
+    -webkit-overflow-scrolling: touch; /* iOSのスムーズスクロール */
+    margin-bottom: 1.5em; /* カルーセルとコンテンツの間に余白を追加 */
+}
+
+.hero-carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像をカバー表示 */
+    scroll-snap-align: start; /* スナップ位置を調整 */
+    flex-shrink: 0; /* 縮小しない */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .hero-content {
-    padding: 0;
+    position: relative;
+    z-index: 1;
+    padding: 2em;
+}
+
+.hero-content h1 {
+    font-size: 2.5em;
+}
+
+.hero-content .catch-phrase {
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
 }
 
 .hero-buttons {
     margin-top: 1.5em;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
 }
 
 .hero-buttons a {
-    margin: 0.5em 0;
-    width: 100%;
+    margin: 0 1em;
+    width: auto;
 }
 
 .menu-section,
@@ -224,18 +265,14 @@ main {
     background-color: #fff;
     padding: 1.5em;
     margin-bottom: 1.5em;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.menu-grid {
-    padding-top: 1em;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); /* 強めの影 */
 }
 
 .menu-tabs {
     display: flex;
     margin-bottom: 1em;
-    border-bottom: 1px solid #eee;
+    border-bottom: 4px solid #ffcc00; /* 黄色の太い下線を追加 */
 }
 
 .menu-tab {
@@ -251,7 +288,7 @@ main {
 
 .menu-tab.active {
     color: #222;
-    border-bottom-color: #dc3545;
+    border-bottom-color: #e44d26;
 }
 
 .menu-tab:hover {
@@ -259,11 +296,11 @@ main {
 }
 
 .menu-contents > .menu-content {
-    display: none; /* 初期状態では全て非表示 */
+    display: none;
 }
 
 .menu-contents > .menu-content.active {
-    display: block; /* activeクラスを持つコンテンツのみ表示 */
+    display: block;
 }
 
 .menu-grid {
@@ -305,34 +342,46 @@ main {
 }
 
 .menu-category-content {
-    display: none; /* 初期状態では非表示 */
+    display: none;
     padding: 1em;
     border: 1px solid #eee;
     border-radius: 5px;
-    margin-top: -0.5em; /* タイトルとの隙間を調整 */
+    margin-top: -0.5em;
 }
 
 .menu-category-content.open {
-    display: grid; /* メニューグリッドを表示 */
+    display: grid;
 }
-
 
 .menu-item {
     padding: 1em;
-    border: 1px solid #eee;
-    border-radius: 5px;
+    border: 2px solid #ffcc00; /* 黄色のボーダー */
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
 }
 
 .menu-item h4 {
     margin-top: 0;
     margin-bottom: 0.5em;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    color: #e44d26; /* 赤系の色 */
 }
 
-.menu-item p {
-    margin-bottom: 0.3em;
+.menu-item .price {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    margin-top: 0.5em;
+}
+
+.menu-item .sub-text {
     font-size: 0.9em;
-    color: black;
+    color: #666;
 }
 
 .location-details {
@@ -343,6 +392,7 @@ main {
     margin-top: 1.5em;
     border-radius: 5px;
     overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .news-list {
@@ -352,7 +402,7 @@ main {
 
 .news-list li {
     padding: 0.8em 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 2px dashed #ffcc00; /* 黄色の破線 */
 }
 
 .news-list li:last-child {
@@ -365,10 +415,11 @@ main {
 }
 
 footer {
-    background-color: #333;
+    background-color: #e44d26;
     color: #fff;
     padding: 1.5em;
     text-align: center;
+    border-top: 4px solid #ffcc00; /* 黄色の太い上線を追加 */
 }
 
 footer .footer-content {
@@ -411,6 +462,8 @@ footer .social-links img {
     height: 50px;
     object-fit: contain;
     vertical-align: middle;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
 }
 
 footer .social-links img:hover {
@@ -430,14 +483,12 @@ footer .social-links img:hover {
         justify-content: flex-start;
         display: flex;
         align-items: center;
-        /* max-width: 800px;  幅を制限（必要に応じて調整） */
     }
 
     .main-nav {
         display: flex;
         width: auto;
         margin: 0;
-        /* width: 100%;  削除: 親要素で制御 */
     }
 
     .main-nav ul {
@@ -445,9 +496,8 @@ footer .social-links img:hover {
         display: flex;
         justify-content: space-between;
         width: 100%;
-        /* max-width: 800px;  幅を制限（必要に応じて調整） */
         margin: 0 auto;
-        white-space: nowrap; /* 追加: 折り返しを禁止 */
+        white-space: nowrap;
     }
 
     .main-nav ul li {
@@ -464,9 +514,8 @@ footer .social-links img:hover {
         display: block;
         width: 100%;
         text-align: center;
-        white-space: nowrap; /* 追加: 折り返しを禁止 */
+        white-space: nowrap;
     }
-
 
     .hamburger-button {
         display: none;
@@ -484,25 +533,48 @@ footer .social-links img:hover {
         flex-direction: row;
         align-items: center;
         text-align: left;
+        padding: 3em; /* 余白を増やしてゆったりと */
     }
 
-    .hero-image {
-        flex: 1;
+    .hero-carousel {
+        width: 50%;
+        height: 400px; /* 高さを固定 */
         margin-bottom: 0;
-        padding-right: 2em;
+        order: 1;
+    }
+
+    .hero-carousel img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 画像をカバー表示 */
+        scroll-snap-align: start;
+        flex-shrink: 0;
     }
 
     .hero-content {
         flex: 1;
         padding-left: 2em;
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* 縦方向中央揃え */
+        align-items: flex-start; /* 左寄せ */
     }
 
     .hero-content h1 {
         font-size: 2.5em;
         text-align: left;
+        margin-bottom: 0.5em; /* 見出し下の余白を減らす */
+    }
+
+    .hero-content .catch-phrase {
+        font-size: 1.2em;
+        margin-bottom: 1em; /* 説明文下の余白を減らす */
     }
 
     .hero-buttons {
+        margin-top: 1.5em;
+        display: flex;
         flex-direction: row;
         justify-content: flex-start;
     }
@@ -510,29 +582,5 @@ footer .social-links img:hover {
     .hero-buttons a {
         width: auto;
         margin: 0 1em 0 0;
-    }
-
-    .menu-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2em;
-        padding-top: 1em;
-    }
-
-    .menu-category-title::after {
-        content: '';
-    }
-
-    .menu-category-title.open::after {
-        content: '';
-    }
-
-    footer nav ul {
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    footer nav ul li {
-        margin: 0 1em;
     }
 }
