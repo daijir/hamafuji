@@ -204,20 +204,20 @@ main {
 
 .hero-carousel {
     display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    will-change: scroll-position;
     width: 100%;
-    height: 300px; /* 必要に応じて調整 */
-    overflow-x: auto; /* 横スクロールを有効にする */
-    scroll-snap-type: x mandatory; /* スナップポイントを設定 */
-    -webkit-overflow-scrolling: touch; /* iOSのスムーズスクロール */
-    margin-bottom: 1.5em; /* カルーセルとコンテンツの間に余白を追加 */
+    height: 400px;
 }
 
 .hero-carousel img {
-    width: 100%;
+    flex: 0 0 100%;
     height: 100%;
-    object-fit: cover; /* 画像をカバー表示 */
-    scroll-snap-align: start; /* スナップ位置を調整 */
-    flex-shrink: 0; /* 縮小しない */
+    object-fit: cover;
+    scroll-snap-align: start;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .hero::before {

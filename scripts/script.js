@@ -3,11 +3,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuContents = document.querySelectorAll('.menu-content');
     const categoryTitles = document.querySelectorAll('.menu-category-title');
     const heroCarousel = document.querySelector('.hero-carousel');
+    const heroImages = document.querySelectorAll('.hero-carousel img');
+    let currentImageIndex = 0;
 
     heroCarousel.addEventListener('scroll', () => {
         const scrollPosition = heroCarousel.scrollLeft;
         const imageWidth = heroCarousel.clientWidth;
-        const currentImage = Math.round(scrollPosition / imageWidth) + 1;
+        const newImageIndex = Math.round(scrollPosition / imageWidth);
+
+        if (newImageIndex !== currentImageIndex) {
+            currentImageIndex = newImageIndex;
+            console.log(`現在表示されている画像: ${currentImageIndex + 1}`);
+        }
     });
 
     menuTabs.forEach(tab => {
